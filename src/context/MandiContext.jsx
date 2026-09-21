@@ -5,7 +5,9 @@ import confetti from 'canvas-confetti';
 
 const MandiContext = createContext(null);
 
-const API_BASE = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
+const API_BASE = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : (import.meta.env.DEV ? 'http://localhost:5000/api' : '/api');
 
 const STORAGE_KEY_USER = 'kisansetu_user_v2';
 const STORAGE_KEY_ACTIVE_TOKEN = 'kisansetu_active_token_v2';

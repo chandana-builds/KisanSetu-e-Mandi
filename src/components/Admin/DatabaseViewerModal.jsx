@@ -24,7 +24,9 @@ export const DatabaseViewerModal = ({ isOpen, onClose }) => {
   const fetchDatabaseData = async () => {
     setLoading(true);
     try {
-      const API = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
+      const API = import.meta.env.VITE_API_URL 
+        ? `${import.meta.env.VITE_API_URL}/api`
+        : (import.meta.env.DEV ? 'http://localhost:5000/api' : '/api');
       const [usersRes, bookingsRes, smsRes] = await Promise.all([
         fetch(`${API}/users`).then(r => r.json()).catch(() => []),
         fetch(`${API}/bookings`).then(r => r.json()).catch(() => []),

@@ -1,6 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import db, { initDatabase } from './db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, '..', 'dist');
 
 initDatabase();
 
@@ -318,6 +324,22 @@ app.post('/api/reset', (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// Serve Vite production build assets when available
+app.use(express.static(distPath));
+
+// SPA catch-all handler for Express 5 (any non-API GET request serves index.html)
+app.use((req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'API endpoint not found' });
+  }
+  const indexFile = path.join(distPath, 'index.html');
+  res.sendFile(indexFile, (err) => {
+    if (err) {
+      res.status(200).send('KisanSetu API is running. (Frontend dist not built yet)');
+    }
+  });
 });
 
 app.listen(PORT, () => {
