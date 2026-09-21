@@ -1,14 +1,7 @@
 # KisanSetu (कृषि सेतु)
 ### Smart Mandi Slot Booking & Real-Time Queue Management Platform
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-kisansetu--e--mandi.onrender.com-success?style=for-the-badge&logo=render)](https://kisansetu-e-mandi.onrender.com/)
-[![Smart India Hackathon](https://img.shields.io/badge/SIH-Hackathon%20Project-orange.svg?style=for-the-badge)](https://sih.gov.in/)
-[![React 19](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
-[![Node Express](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=for-the-badge&logo=node.js)](https://expressjs.com/)
-[![SQLite](https://img.shields.io/badge/Database-SQLite%203-003B57?style=for-the-badge&logo=sqlite)](https://www.sqlite.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38B2D6?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
----
 
 ## 🌐 Live Deployment
 The platform is deployed and live at:
