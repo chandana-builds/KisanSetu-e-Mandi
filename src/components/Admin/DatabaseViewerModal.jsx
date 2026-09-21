@@ -24,10 +24,11 @@ export const DatabaseViewerModal = ({ isOpen, onClose }) => {
   const fetchDatabaseData = async () => {
     setLoading(true);
     try {
+      const API = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
       const [usersRes, bookingsRes, smsRes] = await Promise.all([
-        fetch('http://localhost:5000/api/users').then(r => r.json()).catch(() => []),
-        fetch('http://localhost:5000/api/bookings').then(r => r.json()).catch(() => []),
-        fetch('http://localhost:5000/api/sms').then(r => r.json()).catch(() => [])
+        fetch(`${API}/users`).then(r => r.json()).catch(() => []),
+        fetch(`${API}/bookings`).then(r => r.json()).catch(() => []),
+        fetch(`${API}/sms`).then(r => r.json()).catch(() => [])
       ]);
 
       setUsers(usersRes || []);
